@@ -11,6 +11,9 @@ let initials = $("#initials");
 let startBtn = $("#start");
 let timer;
 
+let sfxRight = new Audio ("assets/sfx/correct.wav");
+let sfxWrong = new Audio ("assets/sfx/incorrect.wav");
+
 let feedbackID = $("#feedback");
 
 //Function to build the quiz
@@ -45,13 +48,13 @@ function getQuestion(){
 
         choiceNode.onclick = questionClick;
 
-        choice.appendChild(choiceNode);
+        choiceEl.append(choiceNode);
     });
 }
 
 
 function questionClick(){
-    if(this.value !== questions[currentQuestionIndex].correctAnswer){
+    if(this.value !== myQuestions[currentQuestionIndex].correctAnswer){
 
         time -= 15;
 
@@ -71,9 +74,9 @@ function questionClick(){
         feedbackID.textContent = "Correct!!";
     }
 
-    feedbackID.setAttribute("class", "feedback");
+    feedbackID.addClass("feedback");
     setTimeout(function (){
-        feedbackID.setAttribute("class", "feedback hide");
+        feedbackID.addClass("feedback hide");
     }, 1000);
 
     currentQuestionIndex++;
@@ -89,7 +92,7 @@ function quizEnd(){
     clearInterval(timer);
 
     let endScreen = $("#gameover");
-    endScreen.removeAttribute("class");
+    endScreen.remove("class");
 
     let finalScore = $("#final");
     finalScore.textContect = time;
@@ -133,6 +136,6 @@ function checkForEnter(event){
 
 submitButton.onclick = saveHighScore;
 
-startBtn.onclick = buildQuiz();
+startBtn.click(buildQuiz);
 
 initials.onkeyup = checkForEnter;
