@@ -5,7 +5,7 @@ let timeLink = $("#time");
 let time = myQuestions.length * 15;
 let choiceEl = $("#choices");
 let currentQuestionIndex = 0;
-let initials = $("#initials");
+let initialsInput = $("#initials");
 
 
 let startBtn = $("#start");
@@ -110,21 +110,21 @@ function clockTick(){
 }
 
 function saveHighScore(){
-    let initials = initials.value.trim();
+    let initials = initialsInput.val().trim();
 
     if (initials !== ""){
-        let highscores = 
-        JSON.parse(window.localStorage.getItem("highscores")) || [];
+        let highscore = 
+        JSON.parse(window.localStorage.getItem("highscore")) || [];
 
         let newScore = {
             score: time,
             initials: initials
         };
 
-        highscores.push(newScore);
-        window.localStorage.setItem("highscores", JSON.stringify(highscores));
+        highscore.push(newScore);
+        window.localStorage.setItem("highscore", JSON.stringify(highscore));
 
-        window.location.href = "highscores.html";
+        window.location.href = "scores.html";
     }
 }
 
