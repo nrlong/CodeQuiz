@@ -1,51 +1,29 @@
 const myQuestions = [{
     question: "What is the HTML tag under which one can write JavaScript Code?",
-    answers:{
-    a: "<javascript>",
-    b: "<scripted>",
-    c: "<script>",
-    d: "<js>"
-    },
-    correctAnswer: "c"
+    answers:["<javascript>","<scripted>","<script>","<js>"],
+    correctAnswer: "<script>"
 },
 {
     question: "Which is the correct syntax to display an alert?",
-    answers: {
-        a: "alertbox('alert')",
-        b: "msg('alert')",
-        c: "msgbox('alert')",
-        d: "alert('alert')",
-    },
-    correctAnswer: "d"
+    answers: ["alertbox('alert')", "msg('alert')", "msgbox('alert')", "alert('alert')",
+],
+    correctAnswer: "alert('alert')"
 },
 {
     question: "The external JavaScript file must contain <script> tag.  True or False?",
-    answers: {
-        a: "True",
-        b: "False"
-    },
-    correctAnswer: "b"
+    answers: ["True","False"],
+    correctAnswer: "False"
 },
 
 {
     question: "How is a function called in JavaScript?",
-    answers: {
-        a: "call someFunction();",
-        b: "call function someFunction();",
-        c: "someFunction();",
-        d: "function someFunction();"
-    },
-    correctAnswer: "c"
+    answers: ["call someFunction();", "call function someFunction();", "someFunction();","function someFunction();"],
+    correctAnswer: "someFunction();"
 },
 
 {
     question: "Who invented JavaScript?",
-    answers: {
-        a: "Douglas Crockford",
-        b: "Bill Gates",
-        c: "Starbucks",
-        d: "Brendan Eich"
-    },
-    correctAnswer: "d"
+    answers: ["Douglas Crockford","Bill Gates","Starbucks","Brendan Eich"],
+    correctAnswer: "Brendan Eich"
 }
 ];
