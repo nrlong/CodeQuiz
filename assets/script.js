@@ -25,7 +25,7 @@ function buildQuiz(){
 
    timer = setInterval(clockTick, 1000);
 
-   timeLink.textContent = time;
+   timeLink.text(time);
 
    getQuestion();
 }
@@ -35,9 +35,9 @@ function getQuestion(){
     let currentQuestion = myQuestions[currentQuestionIndex];
 
     let questionTitle = $("#question-title");
-    questionTitle.textContent = currentQuestion.question;
+    questionTitle.text(currentQuestion.question);
 
-    choiceEl.innerHTML ="";
+    choiceEl.html("");
 
     currentQuestion.answers.forEach(function(choice, i){
         let choiceNode = document.createElement("button");
@@ -66,12 +66,12 @@ function questionClick(){
 
         sfxWrong.play();
 
-        feedbackID.textContent = "Wrong!";
+        feedbackID.text("Wrong!");
 
     }else {
         sfxRight.play();
 
-        feedbackID.textContent = "Correct!!";
+        feedbackID.text("Correct!!");
     }
 
     feedbackID.addClass("feedback");
@@ -92,17 +92,17 @@ function quizEnd(){
     clearInterval(timer);
 
     let endScreen = $("#gameover");
-    endScreen.remove("class");
+    endScreen.removeClass();
 
     let finalScore = $("#final");
-    finalScore.textContect = time;
+    finalScore.text(time);
 
     questions.setAttribute("class", "hide");
 }
 
 function clockTick(){
     time--;
-    timer.textContent = time;
+    timeLink.text(time);
 
     if (time <= 0){
         quizEnd();
@@ -134,7 +134,7 @@ function checkForEnter(event){
     }
 }
 
-submitButton.onclick = saveHighScore;
+submitButton.click(saveHighScore);
 
 startBtn.click(buildQuiz);
 
